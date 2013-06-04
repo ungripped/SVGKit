@@ -52,6 +52,14 @@
     _fillCG = CGColorRetain(CGColorWithSVGColor(fillColor));
 }
 
+- (void)setStrokeColor:(SVGColor)strokeColor {
+    _strokeColor = strokeColor;
+    
+    if ( _strokeCG != nil)
+        CGColorRelease(_strokeCG);
+    _strokeCG = CGColorRetain(CGColorWithSVGColor(strokeColor));
+}
+
 - (void)dealloc {
 	[self loadPath:NULL];
     [self setFillPattern:nil];
